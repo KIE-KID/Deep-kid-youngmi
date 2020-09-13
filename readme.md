@@ -2,7 +2,7 @@
  ![밑바닥부터 시작하는 딥러닝](https://www.hanbit.co.kr/data/books/B8475831198_l.jpg)<br>
 『밑바닥부터 시작하는 딥러닝』(한빛미디어, 2017)<br>
 참고:  <https://github.com/WegraLee/deep-learning-from-scratch/><br><br>
-
+<hr>
 ### 스터디 계획<br>
 - 기간: ~ 2020.11<br>
 - 방법: 이론, 예제 실습 
