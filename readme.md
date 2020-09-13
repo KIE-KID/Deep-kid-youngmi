@@ -4,7 +4,8 @@
 참고:  <https://github.com/WegraLee/deep-learning-from-scratch/><br><br>
 
 ### 스터디 계획<br>
-목표 기간: ~2020.11
+기간: ~2020.11
+방법: 이론, 코드 실습 
 |No.|Chapter|Date|Folder|Done|
 |:--:|:-------:|:---:|:---:|:---:|
 |1|헬로 파이썬|2020.09.10-2020.09.10|||
