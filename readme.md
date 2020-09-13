@@ -4,7 +4,7 @@
 참고:  <https://github.com/WegraLee/deep-learning-from-scratch/><br><br>
 
 ### 스터디 계획<br>
-- 기간: ~2020.11<br>
+- 기간: ~ 2020.11<br>
 - 방법: 이론, 예제 실습 
 
 |No.|Chapter|Date|Folder|Done|
