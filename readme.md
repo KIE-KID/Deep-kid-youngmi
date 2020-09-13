@@ -3,7 +3,6 @@
 『밑바닥부터 시작하는 딥러닝』(한빛미디어, 2017)<br>
 참고:  <https://github.com/WegraLee/deep-learning-from-scratch/><br>
 목표 기간: ~2020.11<br><br>
-
 스터디 계획<br>
 
 |No.|Chapter|Date|Folder|Done|
