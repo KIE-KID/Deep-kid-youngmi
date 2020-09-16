@@ -8,7 +8,7 @@
 ### 스터디 계획<br>
 🔹 기간: ~ 2020.11<br>
 🔹 방법: 이론 공부, 예제 실습 <br>
-🔹 with.아정 [@aaajeong GitHub](https://github.com/aaajeong)
+🔹 with.아정 [@aaajeong](https://github.com/aaajeong)
 
 |No.|Chapter|Start Date|End Date|Folder|Done|
 |:--:|:-------:|:---:|:---:|:---:|:---:|
