@@ -6,9 +6,10 @@
 ---
 
 ### 스터디 계획<br>
-🔹 기간: ~ 2020.11<br>
-🔹 방법: 이론 공부, 예제 실습 <br>
-🔹 with.아정 [@aaajeong](https://github.com/aaajeong)
+▪ 2020.09 ~ 2020.11<br>
+▪ 이론 공부, 예제 실습 <br>
+
+💜 with.아정 [@aaajeong](https://github.com/aaajeong)
 
 |No.|Chapter|Start Date|End Date|Folder|Done|
 |:--:|:-------:|:---:|:---:|:---:|:---:|
