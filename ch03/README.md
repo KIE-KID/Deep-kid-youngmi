@@ -1,3 +1,4 @@
+# 실행결과
 1. 계단 함수의 그래프
 
 ![Figure_1](https://user-images.githubusercontent.com/53163222/93405954-70a1fa80-f8c9-11ea-9f3a-c38db7594e4f.png)
