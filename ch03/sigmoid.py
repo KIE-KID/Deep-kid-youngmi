@@ -8,5 +8,5 @@ def sigmoid(x):
 X = np.arange(-5.0, 5.0, 0.1)
 Y = sigmoid(X)
 plt.plot(X, Y)      #X, Y를 인수로 그래프 그리기
-plt.ylim(-0.1, 1.1) #y축 범위 지정
+plt.ylim(-0.1, 1.1) #y축 범위를 지정
 plt.show()          #그래프를 화면에 출력
