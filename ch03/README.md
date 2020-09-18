@@ -4,4 +4,4 @@
 
 2. 시그모이드 함수의 그래프 - sigmoid.py
 
-![Figure_2](https://user-images.githubusercontent.com/53163222/93405957-726bbe00-f8c9-11ea-840f-8941296c18e7.png)
+<img src='https://user-images.githubusercontent.com/53163222/93405957-726bbe00-f8c9-11ea-840f-8941296c18e7.png' width='50%'>
