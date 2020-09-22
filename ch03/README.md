@@ -9,3 +9,4 @@
 <img src='https://user-images.githubusercontent.com/53163222/93642227-ac0f0700-fa38-11ea-8cd4-734fadc25536.png' width='50%'>
 
 ### 4. 렐루 함수의 그래프 - relu.py
+<img src='https://user-images.githubusercontent.com/53163222/93851573-56ae5080-fceb-11ea-92d5-9d5be95aca0b.png' width='50%'>
