@@ -1,7 +1,7 @@
 ### AND 게이트
 |x<sub>1</sub>  x<sub>2</sub>| y |
 |:--------:|:--:|
-| 0     0 |0|
-| 1     0 |0|
-| 0     1 |0|
-| 1     1 |1|
+| &nbsp;0&nbsp;&nbsp;&nbsp;0 |0|
+| &nbsp;1&nbsp;&nbsp;&nbsp;0 |0|
+| &nbsp;0&nbsp;&nbsp;&nbsp;1 |0|
+| &nbsp;1&nbsp;&nbsp;&nbsp;1 |1|
