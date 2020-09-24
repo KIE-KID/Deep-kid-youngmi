@@ -39,5 +39,5 @@
 |　1　　1　|　0　　1　|0|
 
 s<sub>1</sub>: NAND Gate<br>
-s<sub>2</sub>: OR Gate　
+s<sub>2</sub>: OR Gate<br>　
 y: AND Gate
