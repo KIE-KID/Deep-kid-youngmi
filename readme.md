@@ -10,7 +10,9 @@
 ▪ 이론 공부<br>
 
 💜 with.아정 [@aaajeong](https://github.com/aaajeong)
+
 ----
+
 ▪ 이론 복습 & 예제 실습 <br/>
 
 |No.|Chapter|Start Date|End Date|Folder|Done|
