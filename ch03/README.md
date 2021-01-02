@@ -1,4 +1,7 @@
-# 실행결과
+# 내용 정리
+* 신경망에서는 활설화 함수로 시그모이드 함수와 ReLU 함수 같은 매끄럽게 변화하는 함수를 이용한다.
+
+# 실행 결과
 ### 1. 계단 함수의 그래프 - step_function.py
 <img src='https://user-images.githubusercontent.com/53163222/93405954-70a1fa80-f8c9-11ea-9f3a-c38db7594e4f.png' width='50%'>
 
