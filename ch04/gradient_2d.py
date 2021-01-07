@@ -50,24 +50,57 @@ def tangent_line(f, x):
     print(d)
     y = f(x) - d*x
     return lambda t: d*t + y
-     
-if __name__ == '__main__':
-    x0 = np.arange(-2, 2.5, 0.25)
-    x1 = np.arange(-2, 2.5, 0.25)
-    X, Y = np.meshgrid(x0, x1)
+
+#경사법에 의한 갱신 과정을 나타내는 함수, 학습률=0.01
+def gradient_descent(f, init_x, lr=0.01, step_num=100):
+    x = init_x
+    x_history = []
+
+    for i in range(step_num):
+        x_history.append( x.copy() )
+
+        grad = numerical_gradient(f, x)
+        x -= lr * grad
+
+    return x, np.array(x_history)
+
+# init_x = np.array([-3.0, 4.0])    
+
+# lr = 0.1
+# step_num = 20
+# x, x_history = gradient_descent(function_2, init_x, lr=lr, step_num=step_num)
+
+# plt.plot( [-5, 5], [0,0], '--b')
+# plt.plot( [0,0], [-5, 5], '--b')
+# plt.plot(x_history[:,0], x_history[:,1], 'o')
+
+# plt.xlim(-3.5, 3.5)
+# plt.ylim(-4.5, 4.5)
+# plt.xlabel("X0")
+# plt.ylabel("X1")
+# plt.show()
+
+
+# # 그래프 그리기   
+# if __name__ == '__main__':
+#     x0 = np.arange(-2, 2.5, 0.25)
+#     x1 = np.arange(-2, 2.5, 0.25)
+#     X, Y = np.meshgrid(x0, x1)
     
-    X = X.flatten()
-    Y = Y.flatten()
+#     X = X.flatten()
+#     Y = Y.flatten()
     
-    grad = numerical_gradient(function_2, np.array([X, Y]) )
+#     grad = numerical_gradient(function_2, np.array([X, Y]) )
     
-    plt.figure()
-    plt.quiver(X, Y, -grad[0], -grad[1],  angles="xy",color="#666666")#,headwidth=10,scale=40,color="#444444")
-    plt.xlim([-2, 2])
-    plt.ylim([-2, 2])
-    plt.xlabel('x0')
-    plt.ylabel('x1')
-    plt.grid()
-    plt.legend()
-    plt.draw()
-    plt.show()
+#     plt.figure()
+#     plt.quiver(X, Y, -grad[0], -grad[1],  angles="xy",color="#666666")#,headwidth=10,scale=40,color="#444444")
+#     plt.xlim([-2, 2])
+#     plt.ylim([-2, 2])
+#     plt.xlabel('x0')
+#     plt.ylabel('x1')
+#     plt.grid()
+#     plt.legend()
+#     plt.draw()
+#     plt.show()
+
+ 
