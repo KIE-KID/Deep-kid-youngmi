@@ -4,7 +4,7 @@ from ch05.layer_naive import *
 
 apple = 100 # 사과 가격
 apple_num = 2 # 사과 개수
-tax = 1.1
+tax = 1.1 # 소비세
 
 # 계층들 초기화
 mul_apple_layer = MulLayer() # 사과 x 사과개수
