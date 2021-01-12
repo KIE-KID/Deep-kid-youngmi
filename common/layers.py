@@ -1,5 +1,8 @@
 import numpy as np
 # 4장 신경망 학습 ReLU
+from common.functions import *
+
+
 class Relu:
     def __init__(self):
         self.mask = None
@@ -50,7 +53,7 @@ class Affine:
     def forward(self, x):
         # 텐서 대응
         self.original_x_shape = x.shape
-        x = x.reshape(x.shape[0], -1)
+        x = x.reshape(x.sKhape[0], -1)
         self.x = x
 
         out = np.dot(self.x, self.W) + self.b
@@ -63,4 +66,30 @@ class Affine:
         self.db = np.sum(dout, axis=0) # 열방햡으로 합계
 
         dx = dx.reshape(*self.original_x_shape)  # 입력 데이터 모양 변경(텐서 대응)
+        return dx
+
+# softmax with loss
+class SoftmaxWithLoss:
+    def __init__(self):
+        self.loss = None # 손실함수
+        self.y = None # softmax의 출력
+        self.t = None # 정답레이블(원-핫 인코딩 형태)
+
+    #순전파 - 입력, 정답레이블
+    def forward(self, x, t):
+        self.t = t
+        self.y = softmax(x)
+        self.loss = cross_entropy_error(self.y, self.t)
+
+        return self.loss
+
+    def backward(self, dout=1):
+        batch_size = self.t.shape[0]
+        if self.t.size == self.y.size: # 정답 레이블이 원-핫 인코딩 형태
+            dx = (self.y - self.t) / batch_size
+        else:
+            dx = self.y.copy()
+            dx[np.arange(batch_size), self.t] -= 1
+            dx = dx/batch_size
+
         return dx
