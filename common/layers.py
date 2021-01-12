@@ -70,24 +70,24 @@ class Affine:
 
 # softmax with loss
 class SoftmaxWithLoss:
-    def __init__(self):
-        self.loss = None # 손실함수
-        self.y = None # softmax의 출력
-        self.t = None # 정답레이블(원-핫 인코딩 형태)
+    def __init__(self): # 학습 파라미터 없음
+        self.loss = None    # 손실함수
+        self.y = None       # softmax의 출력
+        self.t = None       # 정답레이블(원-핫 인코딩 형태)
 
-    #순전파 - 입력, 정답레이블
+    #순전파 - 데이터, 정답레이블
     def forward(self, x, t):
         self.t = t
-        self.y = softmax(x)
-        self.loss = cross_entropy_error(self.y, self.t)
+        self.y = softmax(x) # 확률분포로 변환
+        self.loss = cross_entropy_error(self.y, self.t) # 손실함수 값
 
         return self.loss
 
-    def backward(self, dout=1):
+    def backward(self, dout=1): # 미분값 1
         batch_size = self.t.shape[0]
-        if self.t.size == self.y.size: # 정답 레이블이 원-핫 인코딩 형태
-            dx = (self.y - self.t) / batch_size
-        else:
+        if self.t.size == self.y.size: # 정답 레이블이 원-핫 인코딩 형태라면
+            dx = (self.y - self.t) / batch_size  # 배치처리, 평균
+        else: # 원-핫 인코딩이 아니라면
             dx = self.y.copy()
             dx[np.arange(batch_size), self.t] -= 1
             dx = dx/batch_size
