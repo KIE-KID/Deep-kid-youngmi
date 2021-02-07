@@ -1,4 +1,4 @@
-
+# 가중치를 표준편차가 1인 정규분포로 초기화할 때의 각 층의 활성화값 분포
 import numpy as np
 import matplotlib.pyplot as plt
 
