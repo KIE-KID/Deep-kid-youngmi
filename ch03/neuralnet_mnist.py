@@ -2,7 +2,7 @@
 #입력층, 은닉층1, 은닉층2, 출력층의 뉴런 수는 각각 784, 50, 100, 10입니다.
 #784=28*28
 import sys, os
-import nupmy as np
+import numpy as np
 import pickle
 from dataset.mnist import load_mnist
 from common.functions import sigmoid, softmax
@@ -26,7 +26,7 @@ def predict(network, x):
   a2 = np.dot(z1,W2) + b2
   z2 = sigmoid(a2)
   a3 = np.dot(z2,W3) + b3
-  z2 = sigmoid(a3)
+  y = sigmoid(a3)
 
   return y
 
