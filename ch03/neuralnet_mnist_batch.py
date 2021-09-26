@@ -9,7 +9,7 @@ from common.functions import sigmoid, softmax
 
 def get_data():
     (x_train, t_train), (x_test, t_test) = load_mnist(normalize=True, flatten=True, one_hot_label=False)
-    return x_test, t_test
+    return x_test, t_test # 학습은 하지 않기떄문에 리턴하지 않음
 
 
 def init_network():
@@ -38,10 +38,11 @@ network = init_network()
 batch_size = 100 # 배치 크기
 accuracy_cnt = 0
 
-for i in range(0, len(x), batch_size):
-    x_batch = x[i:i+batch_size]
-    y_batch = predict(network, x_batch)
-    p = np.argmax(y_batch, axis=1)
-    accuracy_cnt += np.sum(p == t[i:i+batch_size])
+for i in range(0, len(x), batch_size): # 100씩 건너뛰면서 루프를 돈다.
+    x_batch = x[i:i+batch_size] #100개 데이터를 한번에 가져옴
+    y_batch = predict(network, x_batch) # 100개를 한번에 추론(예측)
+    p = np.argmax(y_batch, axis=1) # 100개의 추론 결과 배열에서 가장 예측치가 높은 항의 인덱스를  행방향으로 가져옴.
+    accuracy_cnt += np.sum(p == t[i:i+batch_size]) # 추론 결과와 test셋의 실제 경과가 같은 것의 횟수를 센다.
 
-print("Accuracy:" + str(float(accuracy_cnt) / len(x)))
+print("Accuracy:" + str(float(accuracy_cnt) / len(x     ))) # Accuracy:0.9352
+
