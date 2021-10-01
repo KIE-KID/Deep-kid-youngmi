@@ -4,6 +4,14 @@ def cross_entropy_error(y, t):
     delta = 1e-7 # 0과 비슷한 작은 값
     return -np.sum(t * np.log(y+delta)) # np.log: 자연로그, y에 0이 들어가면 -inf가 되기 때문에 아주 작은 값을 더해서 방지해줌.
 
+def cross_entropy_error_batch(y, t):
+    if y.ndim == 1: # 1차원 입력이라면,
+        t = t.reshape(1, t.size)
+        y = t.reshape(1, y.size)
+
+    batch_size = y.shape[0] # 행의 개수, 배치 크기
+    return -np.sum(t * np.log(y + 1e-7)) / batch_size
+
 
 t = [0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
 y1 = [0.1, 0.05, 0.6, 0.0, 0.05, 0.1, 0.0, 0.1, 0.0, 0.0]
