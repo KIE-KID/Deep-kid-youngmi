@@ -1,3 +1,6 @@
+'''미니 배치 구현'''
+# 훈련 데이터가 6만개로 모든 데이터를 대상으로 손실 함수의 합을 구하려면 시간이 오래 걸린다.
+# 그래서 데이터의 일부를 추려서 근사치로 학습에 이용할 수 있다.
 import sys, os
 sys.path.append(os.pardir)
 import numpy as np
