@@ -1,13 +1,14 @@
 import numpy as np
-
 # 확률적 경사 하강법 (Stochastic Gradient Descent)
 class SGD:
     def __init__(self, lr=0.01):
         self.lr = lr
 
+    # 반복해서 불리면서 가중치 매개변수를 갱신, 기울기 갱신을 반복
     def update(self, params, grads):
         for key in params.keys():
             params[key] -= self.lr * grads[key]
+            # 가중치 매개변수 -= 학습률 * 기울기
 
 # 모멘텀
 class Momentum:
@@ -20,7 +21,10 @@ class Momentum:
         if self.v is None:
             self.v = {}
             for key, val in params.items():
-                self.v[key] = np.zeros_like(val) # 매개변수와 동일한 구조의 데이터를 딕셔너리 변수로 저장
+                self.v[key] = np.zeros_like(val) # 인스턴스 변수 v
+                # update가 처음 호출 될 때 매개변수와 동일한 구조의 데이터를 딕셔너리
+                # 변수로 저장
+                # 물체의 속도, 초기화 때는 아무것도 담지X
 
         for key in params.keys():
             self.v[key] = self.momentum * self.v[key] - self.lr * grads[key]
@@ -42,6 +46,28 @@ class AdaGrad:
         for key in params.keys():
             self.h[key] += grads[key] * grads[key]
             params[key] -= self.lr * grads[key] / (np.sqrt(self.h[key]) + 1e-7)
+            # self.h [ 에 0 이 담겨 있다 해도 0 으로 나누는 사태를 막아줌
+
+
+class RMSprop:
+    """RMSprop"""
+
+    def __init__(self, lr=0.01, decay_rate=0.99):
+        self.lr = lr
+        self.decay_rate = decay_rate
+        self.h = None
+
+    def update(self, params, grads):
+        if self.h is None:
+            self.h = {}
+            for key, val in params.items():
+                self.h[key] = np.zeros_like(val)
+
+        for key in params.keys():
+            self.h[key] *= self.decay_rate
+            self.h[key] += (1 - self.decay_rate) * grads[key] * grads[key]
+            params[key] -= self.lr * grads[key] / (np.sqrt(self.h[key]) + 1e-7)
+
 
 # Adam
 class Adam:
@@ -76,3 +102,27 @@ class Adam:
             # unbias_m += (1 - self.beta1) * (grads[key] - self.m[key]) # correct bias
             # unbisa_b += (1 - self.beta2) * (grads[key]*grads[key] - self.v[key]) # correct bias
             # params[key] += self.lr * unbias_m / (np.sqrt(unbisa_b) + 1e-7)
+
+
+class Nesterov:
+    """Nesterov's Accelerated Gradient (http://arxiv.org/abs/1212.0901)"""
+
+    # NAG는 모멘텀에서 한 단계 발전한 방법이다. (http://newsight.tistory.com/224)
+
+    def __init__(self, lr=0.01, momentum=0.9):
+        self.lr = lr
+        self.momentum = momentum
+        self.v = None
+
+    def update(self, params, grads):
+        if self.v is None:
+            self.v = {}
+            for key, val in params.items():
+                self.v[key] = np.zeros_like(val)
+
+        for key in params.keys():
+            self.v[key] *= self.momentum
+            self.v[key] -= self.lr * grads[key]
+            params[key] += self.momentum * self.momentum * self.v[key]
+            params[key] -= (1 + self.momentum) * self.lr * grads[key]
+
