@@ -7,6 +7,12 @@
 * 수치 미분을 이용해 가중치 매개변수의 기울기를 구할 수 있다.
 * 수치 미분을 이용한 계산에는 시간이 걸리지만, 그 구현은 간단하다.
 * 오차역전파법은 다소 복잡하지만 기울기를 고속으로 구할 수 있다.
+
+
+기울기 - 경사하강법 진행 과정
+
+![Figure_1](https://user-images.githubusercontent.com/53163222/136493870-8ed4885b-1ec4-4c0a-9109-08ce526d425c.png)
+
 <!--
 <img src="https://user-images.githubusercontent.com/53163222/103901714-d8ac7300-513c-11eb-8345-35d0c8ccc466.png">
 <img src="https://user-images.githubusercontent.com/53163222/103904868-317e0a80-5141-11eb-9f44-40a6b845c0ec.png">

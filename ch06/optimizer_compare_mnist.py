@@ -16,6 +16,8 @@ batch_size = 128
 max_iterations = 2000
 
 # 1. 실험용 설정==========
+# 각 층이 100 개의 뉴런으로 구성된 5 층 신경망
+# 활성화 함수로는 ReLU 사용
 optimizers = {}
 optimizers['SGD'] = SGD()
 optimizers['Momentum'] = Momentum()

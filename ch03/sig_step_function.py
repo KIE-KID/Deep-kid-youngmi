@@ -6,9 +6,10 @@ def sigmoid(x):
     return 1 / (1 + np.exp(-x))    
 
 def step_function(x):
-    return np.array(x > 0, dtype=np.int)
+    # 참=1, 거짓=0
+    return np.array(x > 0, dtype=np.int32) #boolean을 정수(32bit짜리 정수)로 처리
 
-x = np.arange(-5.0, 5.0, 0.1)
+x = np.arange(-5.0, 5.0, 0.1) # [-5.0, -4.9, ..., 4.9] 배열을 생성
 y1 = sigmoid(x)
 y2 = step_function(x)
 

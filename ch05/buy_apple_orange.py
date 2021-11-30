@@ -1,5 +1,5 @@
+#3. 사과와 오랜지를 구입하는 예제의 순전파와 역전파 구현
 from ch05.layer_naive import *
-# 사과와 오랜지를 구입하는 예제의 순전파와 역전파 구현
 
 apple = 100 # 사과 가격
 apple_num = 2 # 사과 개수
@@ -14,17 +14,17 @@ add_apple_orange_layer = AddLayer() # 덧셈계층
 mul_tax_layer = MulLayer() # 가격 x 소비세
 
 #순전파
-apple_price = mul_apple_layer.forward(apple,apple_num)
-orange_prcie = mul_orange_layer.forward(orange, orange_num)
-all_price = add_apple_orange_layer.forward(apple_price, orange_prcie)
-price = mul_tax_layer.forward(all_price, tax)
+apple_price = mul_apple_layer.forward(apple,apple_num) # (1)
+orange_prcie = mul_orange_layer.forward(orange, orange_num) # (2)
+all_price = add_apple_orange_layer.forward(apple_price, orange_prcie) # (3)
+price = mul_tax_layer.forward(all_price, tax) # (4)
 
 #backward
 dprice = 1
-dall_price, dtax = mul_tax_layer.backward(dprice)
-dapple_price, dorange_price = add_apple_orange_layer.backward(dall_price)
-dapple, dapple_num = mul_apple_layer.backward(dapple_price)
-dorange, dorange_num = mul_orange_layer.backward(dorange_price)
+dall_price, dtax = mul_tax_layer.backward(dprice) # (4)
+dapple_price, dorange_price = add_apple_orange_layer.backward(dall_price) # (3)
+dapple, dapple_num = mul_apple_layer.backward(dapple_price) # (2)
+dorange, dorange_num = mul_orange_layer.backward(dorange_price) # (1)
 
 print("price:", int(price)) # price: 715
 print("dApple:", dapple) # dApple: 2.2
