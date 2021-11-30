@@ -6,17 +6,14 @@ import matplotlib.pyplot as plt
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
-
 def ReLU(x):
     return np.maximum(0, x)
-
 
 def tanh(x):
     return np.tanh(x)
 
-
 input_data = np.random.randn(1000, 100)  # 1000개의 데이터
-node_num = 100  # 각 은닉층의 노드(뉴런) 수
+node_num = 100  # 각 은닉층의 노드(뉴런)은 100개
 hidden_layer_size = 5  # 은닉층이 5개
 activations = {}  # 이곳에 활성화 결과를 저장
 
@@ -25,7 +22,7 @@ x = input_data
 for i in range(hidden_layer_size):
     if i != 0:
         x = activations[i - 1]
-
+    # 입력 데이터 1,000 개를 정규분포로 무작위로 생성
     # 초깃값을 다양하게 바꿔가며 실험해보자！
     w = np.random.randn(node_num, node_num) * 1
     # w = np.random.randn(node_num, node_num) * 0.01
